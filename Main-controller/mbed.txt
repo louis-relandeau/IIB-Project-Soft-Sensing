@@ -1,0 +1,155 @@
+#include "mbed.h"
+#include "Adafruit_ADS1X15.h"
+
+DigitalOut myled(LED1);
+Serial pc(USBTX, USBRX);
+I2C i2ca(D14, D15);
+I2C i2cb(D7, D6);
+const int adc_addra0 = 0x49;
+const int adc_addra1 = 0x48;
+const int adc_addra2 = 0x4b;
+const int adc_addra3 = 0x4a;
+const int adc_addrb0 = 0x49;
+const int adc_addrb1 = 0x48;
+const int adc_addrb2 = 0x4b;
+const int adc_addrb3 = 0x4a;
+Adafruit_ADS1115 ads1115a0;
+Adafruit_ADS1115 ads1115a1;
+Adafruit_ADS1115 ads1115a2;
+Adafruit_ADS1115 ads1115a3;
+Adafruit_ADS1115 ads1115b0;
+Adafruit_ADS1115 ads1115b1;
+Adafruit_ADS1115 ads1115b2;
+Adafruit_ADS1115 ads1115b3;
+
+char incoming_data[3];//CMD,data
+char ipt;
+int n = 0;
+bool streaming = 0;
+
+int16_t adca0, adca1, adca2, adca3, adca4, adca5, adca6, adca7, adca8, adca9, adca10, adca11, adca12, adca13, adca14, adca15;
+int16_t adcb0, adcb1, adcb2, adcb3, adcb4, adcb5, adcb6, adcb7, adcb8, adcb9, adcb10, adcb11, adcb12, adcb13, adcb14, adcb15;
+
+int main() {
+    pc.baud(9600);
+    wait(0.1f);
+    pc.printf("Skin Sense\r\n");
+    ads1115a0.begin(&i2ca, adc_addra0);
+    ads1115a0.setDataRate(RATE_ADS1115_860SPS);
+    ads1115a1.begin(&i2ca, adc_addra1);
+    ads1115a1.setDataRate(RATE_ADS1115_860SPS);
+    ads1115a2.begin(&i2ca, adc_addra2);
+    ads1115a2.setDataRate(RATE_ADS1115_860SPS);
+    ads1115a3.begin(&i2ca, adc_addra3);
+    ads1115a3.setDataRate(RATE_ADS1115_860SPS);
+    ads1115b0.begin(&i2cb, adc_addrb0);
+    ads1115b0.setDataRate(RATE_ADS1115_860SPS);
+    ads1115b1.begin(&i2cb, adc_addrb1);
+    ads1115b1.setDataRate(RATE_ADS1115_860SPS);
+    ads1115b2.begin(&i2cb, adc_addrb2);
+    ads1115b2.setDataRate(RATE_ADS1115_860SPS);
+    ads1115b3.begin(&i2cb, adc_addrb3);
+    ads1115b3.setDataRate(RATE_ADS1115_860SPS);
+    //while(1) {
+//        myled = 1;
+//        wait(0.2);
+//        myled = 0;
+//        wait(0.2);
+//    }
+    
+    //double adc0;
+    unsigned long tic;
+    while (1) {
+        while(pc.readable()){
+            ipt = pc.getc();
+            //pc.putc(ipt); //echo
+            //store ipt if not eot
+            if(ipt!='\n'){
+                if(n>2){
+                    n=0;
+                    continue;    
+                }
+                incoming_data[n]=ipt;
+                n++;
+            }else{
+                n=0;    
+                pc.printf("received\r\n");
+                switch(incoming_data[0]){
+                    case 'R':
+                        pc.printf("done\r\n");
+                        wait(0.1f);
+                        NVIC_SystemReset();
+                        break;
+                    case 'N':
+                        pc.printf("Skin Sense\r\n");
+                        pc.printf("done\r\n");
+                        break;
+                    case 'S':
+                        streaming = incoming_data[1]-'0';            
+                        pc.putc(incoming_data[1]);
+                        pc.putc('\n');
+                        pc.printf("done\r\n");
+                        break;
+                
+                    default:
+                        pc.printf("INVALID CMD\r\n");
+                        pc.printf("done\r\n");
+                        break; 
+                }
+            }
+        }
+        if(streaming==1){   
+            tic = clock();
+            adca0 = ads1115a0.readADC_SingleEnded(0);
+            adca1 = ads1115a0.readADC_SingleEnded(1);
+            adca2 = ads1115a0.readADC_SingleEnded(2);
+            adca3 = ads1115a0.readADC_SingleEnded(3);
+            
+            adca4 = ads1115a1.readADC_SingleEnded(0);
+            adca5 = ads1115a1.readADC_SingleEnded(1);
+            adca6 = ads1115a1.readADC_SingleEnded(2);
+            adca7 = ads1115a1.readADC_SingleEnded(3);
+            
+            adca8 = ads1115a2.readADC_SingleEnded(0);
+            adca9 = ads1115a2.readADC_SingleEnded(1);
+            adca10 = ads1115a2.readADC_SingleEnded(2);
+            adca11 = ads1115a2.readADC_SingleEnded(3);
+            
+            adca12 = ads1115a3.readADC_SingleEnded(0);
+            adca13 = ads1115a3.readADC_SingleEnded(1);
+            adca14 = ads1115a3.readADC_SingleEnded(2);
+            adca15 = ads1115a3.readADC_SingleEnded(3);
+            
+            adcb0 = ads1115b0.readADC_SingleEnded(0);
+            adcb1 = ads1115b0.readADC_SingleEnded(1);
+            adcb2 = ads1115b0.readADC_SingleEnded(2);
+            adcb3 = ads1115b0.readADC_SingleEnded(3);
+            
+            adcb4 = ads1115b1.readADC_SingleEnded(0);
+            adcb5 = ads1115b1.readADC_SingleEnded(1);
+            adcb6 = ads1115b1.readADC_SingleEnded(2);
+            adcb7 = ads1115b1.readADC_SingleEnded(3);
+            
+            adcb8 = ads1115b2.readADC_SingleEnded(0);
+            adcb9 = ads1115b2.readADC_SingleEnded(1);
+            adcb10 = ads1115b2.readADC_SingleEnded(2);
+            adcb11 = ads1115b2.readADC_SingleEnded(3);
+            
+            adcb12 = ads1115b3.readADC_SingleEnded(0);
+            adcb13 = ads1115b3.readADC_SingleEnded(1);
+            adcb14 = ads1115b3.readADC_SingleEnded(2);
+            adcb15 = ads1115b3.readADC_SingleEnded(3);
+            
+            tic = clock()-tic;
+            pc.printf("S\t%ld\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\r\n", tic, adca0, adca1, adca2, adca3, adca4, adca5, adca6, adca7, adca8, adca9, adca10, adca11, adca12, adca13, adca14, adca15, adcb0, adcb1, adcb2, adcb3, adcb4, adcb5, adcb6, adcb7, adcb8, adcb9, adcb10, adcb11, adcb12, adcb13, adcb14, adcb15);
+            //pc.printf("%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\t%i\n", adcb0, adcb1, adcb2, adcb3, adcb4, adcb5, adcb6, adcb7, adcb8, adcb9, adcb10, adcb11, adcb12, adcb13, adcb14, adcb15);
+            //pc.printf("ADC0 = %i, ADC4 = %i\n", adc0, adc4);
+        }
+        
+        wait(0.001f);
+        //pc.printf("%i\n", tic*10);
+        //uint16_t res;
+        //res = readRegister(&i2c, ADS1X15_REG_POINTER_CONFIG);
+        //pc.printf("res = %i\n", res);
+    }
+}

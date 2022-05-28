@@ -1,0 +1,18 @@
+param		ANN		LSTM
+model		6		10
+		4		3
+		3
+shuffling	no		yes
+MSE		0.446		0.440
+batch		32		128
+epochs		50		300
+test size 0.5
+
+
+y1 MSE:0.4905
+y2 MSE:0.4377
+y3 MSE:0.4284
+
+y1-test MSE:0.4291
+y2-test MSE:0.5167
+y3-test MSE:0.4239
