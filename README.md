@@ -2,7 +2,7 @@
 
 ![Using pressure sensors embedded in a soft skin fitted onto an anthropomorphic robotic hand](Media\Images\annotated_hand.jpg)
 
-This documentation is provided as a complement to the Master's thesis submitted. It contains a description of the main software used in this project. The software and relevant data has been uploaded to .... which contains a formatted duplicate of this README. 
+This documentation is provided as a complement to the Master's thesis submitted. It contains a description of the main software used in this project. The software and relevant data has been uploaded to https://github.com/louis-relandeau/IIB-Project-Soft-Sensing which contains a formatted duplicate of this README. 
 
 ### Table of contents:
 - Main controllers: This folder includes all of the software used to control the UR5 robotic arm, the hand servomotor and the read the sensors' data. It also includes the data from all the performed experiments as well as any code used for signal processing or visualising the results.
