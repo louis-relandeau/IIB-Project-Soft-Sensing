@@ -1,6 +1,6 @@
 # IIB Project: Precise tool manipulation and positioning of a soft sensorised anthropomorphic hand through feedback control and machine learning
 
-![Using pressure sensors embedded in a soft skin fitted onto an anthropomorphic robotic hand](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing/Media/Images/annotated_hand.jpg)
+![Using pressure sensors embedded in a soft skin fitted onto an anthropomorphic robotic hand](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing/blob/master/Media/Images/annotated_hand.jpg)
 
 This documentation is provided as a complement to the Master's thesis submitted. It contains a description of the main software used in this project. The software and relevant data has been uploaded to the following [repo](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing) which contains a formatted duplicate of this README. 
 
