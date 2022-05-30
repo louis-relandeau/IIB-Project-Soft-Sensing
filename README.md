@@ -1,8 +1,14 @@
 # IIB Project: Precise tool manipulation and positioning of a soft sensorised anthropomorphic hand through feedback control and machine learning
 
-![Using pressure sensors embedded in a soft skin fitted onto an anthropomorphic robotic hand](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing/blob/master/Media/Images/annotated_hand.jpg)
-
 This documentation is provided as a complement to the Master's thesis submitted. It contains a description of the main software used in this project. The software and relevant data has been uploaded to the following [repo](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing) which contains a formatted duplicate of this README. 
+
+![Annotated hand and skin](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing/blob/master/Media/Images/annotated_hand.jpg)
+
+Image showing the novel soft sensing (pressure sensors) skin mounted onto an anthropomorphic robotic hand.
+
+![Picking and sensing video](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing/blob/master/Media/Images/IROS_video_FullHD.mp4)
+
+Video illustrating examples of picking and in real time sensing using tools.
 
 ### Table of contents:
 - Main controllers: This folder includes all of the software used to control the UR5 robotic arm, the hand servomotor and the read the sensors' data. It also includes the data from all the performed experiments as well as any code used for signal processing or visualising the results.
