@@ -6,7 +6,7 @@ This documentation is provided as a complement to the Master's thesis submitted.
 
 Image showing the novel soft sensing (pressure sensors) skin mounted onto an anthropomorphic robotic hand.
 
-![Picking and sensing video](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing/blob/master/Media/Images/IROS_video_FullHD.mp4)
+![Picking and sensing video](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing/blob/master/Media/Images/IROS_video_Standard.mp4)
 
 Video illustrating examples of picking and in real time sensing using tools.
 
