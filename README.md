@@ -1,4 +1,4 @@
-# IIB Project: A soft sensorised anthropomorphic hand for improved robotic manipulation
+# IIB Project: Precise tool manipulation and positioning of a soft sensorised anthropomorphic hand through feedback control and machine learning
 
 ![Using pressure sensors embedded in a soft skin fitted onto an anthropomorphic robotic hand](Media\Images\annotated_hand.jpg)
 
