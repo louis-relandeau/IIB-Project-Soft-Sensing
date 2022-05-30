@@ -23,9 +23,11 @@ This section describes the controller used for experiments and data collection i
 
 ### Contents
 
-1. The Main-controller folder contains [ur5_and_hand_controller](Main-controller/ur5_and_hand_controller) which is the directory containing all controllers, collected data and function used for plotting. The data, the plotting functions as well as the functions used to collect said data are all named appropriately and briefly commented on in the code. 
-2. It also contains [Arduino](Main-controller/Arduino), which is all the code used for sensor polling and servomotor control. This code should be uploaded to an Arduino or equivalent following the indicated pin numbering to allow for a controller to communicate with it.
-3. This folder also contains [ur5_client](Main-controller/ur5_client), the code used on the UR5 client which is required to inrface with the python script. This should be loaded on the UR5 system previously to any connection, see below.
+The Main-controller folder contains [ur5_and_hand_controller](Main-controller/ur5_and_hand_controller) which is the directory containing all controllers, collected data and function used for plotting. The data, the plotting functions as well as the functions used to collect said data are all named appropriately and briefly commented on in the code. 
+
+It also contains [Arduino](Main-controller/Arduino), which is all the code used for sensor polling and servomotor control. This code should be uploaded to an Arduino or equivalent following the indicated pin numbering to allow for a controller to communicate with it.
+
+This folder also contains [ur5_client](Main-controller/ur5_client), the code used on the UR5 client which is required to inrface with the python script. This should be loaded on the UR5 system previously to any connection, see below.
 
 ### Libraries in use:
 - numpy
@@ -53,10 +55,13 @@ This section relies on a set of iPython notebook based on a tutorial from [machi
 
 ### Contents
 
-1. The folders [orientation_prediction_ANN](Neural-networks\orientation_prediction_ANN) and [orientation_prediction_LSTM](Neural-networks\orientation_prediction_LSTM) each contain a .iynb file which describe the entire training process and results for each network type. The folders also include the data used for training and testing as well as the some images showing training loss and network outputs. 
-2. A comparison of both results is included in [ANN-LSTM-comparison.ipynb](Neural-networks\ANN-LSTM-comparison.ipynb)
-3. Graphs showing results from varying networks and training parameters are included in [media-results](Neural-networks\media-results). 
-4. An experiment was attempted to predict the 2D orientation of a pinched chopstick with the bottom end of the chopstick stuck in a fixed ball joint using a similar neural network data-driven approach. Results were inconclusive and disregarded in the thesis but data and training methods are included in [ball_joint](Neural-networks\ball_joint) 
+The folders [orientation_prediction_ANN](Neural-networks\orientation_prediction_ANN) and [orientation_prediction_LSTM](Neural-networks\orientation_prediction_LSTM) each contain a .iynb file which describe the entire training process and results for each network type. The folders also include the data used for training and testing as well as the some images showing training loss and network outputs. 
+
+A comparison of both results is included in [ANN-LSTM-comparison.ipynb](Neural-networks\ANN-LSTM-comparison.ipynb)
+
+Graphs showing results from varying networks and training parameters are included in [media-results](Neural-networks\media-results). 
+
+An experiment was attempted to predict the 2D orientation of a pinched chopstick with the bottom end of the chopstick stuck in a fixed ball joint using a similar neural network data-driven approach. Results were inconclusive and disregarded in the thesis but data and training methods are included in [ball_joint](Neural-networks\ball_joint) 
 
 ### Libraries in use:
 - Sklearn
