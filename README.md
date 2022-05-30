@@ -1,6 +1,6 @@
 # IIB Project: A soft sensorised anthropomorphic hand for improved robotic manipulation
 
-![Using pressure sensors embedded in a soft skin fitted onto an anthropomorphic robotic hand](Media\Images\annotated_hand.jpg)
+![Using pressure sensors embedded in a soft skin fitted onto an anthropomorphic robotic hand](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing/Media/Images/annotated_hand.jpg)
 
 This documentation is provided as a complement to the Master's thesis submitted. It contains a description of the main software used in this project. The software and relevant data has been uploaded to the following [repo](https://github.com/louis-relandeau/IIB-Project-Soft-Sensing) which contains a formatted duplicate of this README. 
 
